@@ -1,0 +1,34 @@
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:id="@+id/chat_head_root"
+android:layout_height="match_parent"
+android:orientation="vertical">
+
+<!--Profile image for the chat head.-->
+<ImageView
+        android:id="@+id/circle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/circle"
+        tools:ignore="ContentDescription"/>
+
+    <ImageView
+            android:id="@+id/happy"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/baseline_mood_24"
+            tools:ignore="ContentDescription"/>
+
+    <ImageView
+            android:id="@+id/sad"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/baseline_mood_bad_24"
+            tools:ignore="ContentDescription"/>
+
+</LinearLayout>
