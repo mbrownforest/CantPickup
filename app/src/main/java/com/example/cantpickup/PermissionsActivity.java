@@ -13,11 +13,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
-public class ServiceRequests extends AppCompatActivity {
+public class PermissionsActivity extends AppCompatActivity {
 
     private static final int MY_PERMISSIONS_REQUEST_READ_PHONE_STATE = 1963;
     private static final int CODE_DRAW_OVER_OTHER_APP_PERMISSION = 1995;
     private static final int MY_PERMISSIONS_REQUEST_SYSTEM_ALERT_WINDOW = 1401;
+    private static final int MY_PERMISSIONS_REQUEST_RECORD_AUDIO = 2019;
 
     private boolean permissionOverdrawGranted;
 
@@ -27,8 +28,25 @@ public class ServiceRequests extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         checkForOverdrawPermission();
         checkForPhoneStatePermission();
-        Intent callIntent = new Intent(this, IncomingCallInterceptor.class);
+        checkForRecordAudioPermission();
+        Intent callIntent = new Intent(this, IncomingCallInterceptorActivity.class);
         startActivity(callIntent);
+    }
+
+    private void checkForRecordAudioPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+                != PackageManager.PERMISSION_GRANTED) {
+            Log.d("YE PERMISSION BE NOT ", "GRANTED");
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.RECORD_AUDIO)) {
+            } else {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.RECORD_AUDIO},
+                        MY_PERMISSIONS_REQUEST_RECORD_AUDIO);
+            }
+
+        }
+
     }
 
     private void checkForPhoneStatePermission() {

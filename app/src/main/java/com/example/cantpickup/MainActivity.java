@@ -17,8 +17,8 @@ public class MainActivity extends AppCompatActivity {
         startService(new Intent(this, CallService.class));
 
         //alerts calls
-        Intent serviceIntent = new Intent(this, ServiceRequests.class);
-        startActivity(serviceIntent);
+        Intent permissionsIntent = new Intent(this, PermissionsActivity.class);
+        startActivity(permissionsIntent);
     }
 
 }

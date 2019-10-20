@@ -76,7 +76,7 @@ public class PopUpService extends Service {
                         //to identify if the user clicked the view or not.
                         if (lastAction == MotionEvent.ACTION_DOWN) {
                             //Open the chat conversation click.
-                            Intent intent = new Intent(PopUpService.this, IncomingCallInterceptor.class);
+                            Intent intent = new Intent(PopUpService.this, IncomingCallInterceptorActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
 

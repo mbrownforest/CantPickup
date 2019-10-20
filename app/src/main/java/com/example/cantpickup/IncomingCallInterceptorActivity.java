@@ -8,7 +8,7 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 
-public class IncomingCallInterceptor extends Activity {
+public class IncomingCallInterceptorActivity extends Activity {
 
     private IntentFilter filter = new IntentFilter();
     private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
@@ -31,7 +31,7 @@ public class IncomingCallInterceptor extends Activity {
 
     private void onIncomingCall() {
         //TODO add in check for permissions
-        startService(new Intent(IncomingCallInterceptor.this, PopUpService.class));
+        startService(new Intent(IncomingCallInterceptorActivity.this, PopUpService.class));
     }
 
     @Override
